@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router();
+const upload = require('../upload');
 
 // Product Model
 const Product = require('../models/Product');
@@ -58,5 +59,7 @@ router.delete('/:id', (req,res)=>{
        }
    })
 })
+
+
 
 module.exports = router;
