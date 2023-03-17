@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 // mongoose.set('StrictQuery', true);
 
 const productRoute = require('./routes/productRoute');
@@ -9,6 +10,7 @@ const app = express()
 
 // Body parser middleware
 app.use(express.json())
+app.use(cors())
 
 //DB config
 
@@ -40,7 +42,7 @@ db.on('error', (error)=>{
 
  })
  app.use('/product', productRoute)  //new code
-
+ 
 //  // Serve our static assets if in production
 // if(process.env.NODE_ENV === 'production'){
 //    // set a static folder
