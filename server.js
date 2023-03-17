@@ -4,6 +4,7 @@ const cors = require('cors');
 // mongoose.set('StrictQuery', true);
 
 const productRoute = require('./routes/productRoute');
+const uploadFiles = require('./routes/uploadfiles');
 
 // Initializing express
 const app = express()
@@ -42,6 +43,7 @@ db.on('error', (error)=>{
 
  })
  app.use('/product', productRoute)  //new code
+ app.use(uploadFiles);
  
 //  // Serve our static assets if in production
 // if(process.env.NODE_ENV === 'production'){
