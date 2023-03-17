@@ -8,7 +8,7 @@ let productSchema = new Schema({
    description: String,
    price: Number,
    quantity: Number,
-
+   image: {type: String, default: ""}
 })
 
 let Product = mongoose.model('Product', productSchema)

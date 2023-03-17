@@ -5,7 +5,8 @@ const path = require('path');
 // Set Storage engine
 const storage = multer.diskStorage({
    destination: './images/',
-   filename: function(req, file, cb){
+   filename: function(req, file, cb){   
+        console.log(file);
        cb(null, file.originalname);
    }
 })
@@ -14,7 +15,7 @@ const storage = multer.diskStorage({
 const upload = multer({
     storage: storage,
     limits: {fileSize: 1000000},
-    fileFilter: function(req,file, cb){
+    fileFilter: function(req, file, cb){
         // Allowed extensions
         let fileTypes = /jpg|jpeg|png|gif/;
         // check file extension
@@ -27,8 +28,9 @@ const upload = multer({
         }else{
             cb('Error: Images Only!!')
         }
+        console.log(file);
     }
- }).single('image');
+ }).single('file');
 
 
 
